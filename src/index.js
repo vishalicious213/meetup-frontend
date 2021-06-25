@@ -1,7 +1,7 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const myElement = <h1>MY ELEMENT</h1>
+// const myElement = <h1>MY ELEMENT</h1>
 
 const restEndpoint = "https://randomuser.me/api"
 
@@ -30,9 +30,11 @@ function RenderResult() {
 }
 
 callRestApi()
+// RenderResult()
 
 ReactDOM.render(
-  myElement,
+  // myElement,
+  <RenderResult />,
   document.getElementById('root')
 );
 
