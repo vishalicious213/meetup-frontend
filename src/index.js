@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 
 const myElement = <h1>MY ELEMENT</h1>
@@ -9,6 +9,24 @@ const callRestApi = async () => {
   const response = await fetch(restEndpoint)
   const jsonResponse = await response.json()
   console.log(jsonResponse)
+  return React.createElement('h1', null, JSON.stringify(jsonResponse))
+}
+
+function RenderResult() {
+  const [apiResponse, setApiResponse] = useState("LOADING")
+
+  useEffect(() => {
+    callRestApi().then(
+      result => setApiResponse(result)
+    )
+  }, [])
+
+  return (
+    <div>
+      <h1>REACT APP</h1>
+      <p>{apiResponse}</p>
+    </div>
+  )
 }
 
 callRestApi()
